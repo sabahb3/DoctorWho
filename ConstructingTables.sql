@@ -69,3 +69,19 @@ CREATE TABLE tblEpisode
     Notes VARCHAR(500)
     CONSTRAINT pk_Episode_Id PRIMARY KEY (EpisodeId),
 );
+
+ALTER Table tblEpisode
+ADD CONSTRAINT fk_Author_Id FOREIGN KEY (AuthorId)
+REFERENCES tblAuthor(AuthorId), 
+CONSTRAINT fk_Doctor_Id FOREIGN KEY (DoctorId)
+REFERENCES tblDoctor(DoctorId)
+
+ALTER Table tblEpisodeEnemy
+ADD CONSTRAINT fk_Episode_Id FOREIGN KEY (EpisodeId)
+REFERENCES tblEpisode(EpisodeId)
+
+ALTER Table tblEpisodeCompanion
+ADD CONSTRAINT fk_Episode_Id_And_Companion FOREIGN KEY (EpisodeId)
+REFERENCES tblEpisode(EpisodeId)
+
+sp_rename 'fk_Episode_Id' , 'fk_Episode_Id_And_Enemy';
