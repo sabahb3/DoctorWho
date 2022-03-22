@@ -28,3 +28,12 @@ CompanionName VARCHAR(255),
 WhoPlayed VARCHAR(255)
 CONSTRAINT pk_Companion_Id PRIMARY KEY (CompanionId)
 );
+
+CREATE TABLE tblEpisodeCompanion(
+EpisodeCompanionId int,
+EpisodeId int,
+CompanionId int, 
+CONSTRAINT pk_Episode_Companion_Id PRIMARY KEY (EpisodeCompanionId),
+CONSTRAINT FK_CompanionId_Id FOREIGN KEY (CompanionId)
+REFERENCES tblCompanion(CompanionId)
+);
