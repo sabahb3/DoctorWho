@@ -37,3 +37,13 @@ CONSTRAINT pk_Episode_Companion_Id PRIMARY KEY (EpisodeCompanionId),
 CONSTRAINT FK_CompanionId_Id FOREIGN KEY (CompanionId)
 REFERENCES tblCompanion(CompanionId)
 );
+
+CREATE TABLE tblDoctor(
+DoctorId INT, 
+DoctorNumber VARCHAR(20),
+DoctorName VARCHAR(255),
+BirthDate DATE,
+FirstEpisodeDate DATETIME,
+LastEpisodeDate DATETIME,
+CONSTRAINT pk_Doctor_Id PRIMARY KEY (DoctorId)
+);
