@@ -47,3 +47,18 @@ FirstEpisodeDate DATETIME,
 LastEpisodeDate DATETIME,
 CONSTRAINT pk_Doctor_Id PRIMARY KEY (DoctorId)
 );
+
+CREATE TABLE tblEpisode(
+EpisodeId INT,
+SeriesNumber INT,
+EpisodeNumber INT,
+EpisodeType VARCHAR(10)
+    CHECK(EpisodeType IN('Full','Bonus','Trailer'))
+    DEFAULT 'Trailer',
+Title VARCHAR(100),
+EpisodeDate DATETIME,
+AuthorId INT,
+DoctorId INT,
+Notes VARCHAR(500)
+CONSTRAINT pk_Episode_Id PRIMARY KEY (EpisodeId),
+);
