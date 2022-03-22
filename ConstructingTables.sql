@@ -21,3 +21,10 @@ CONSTRAINT pk_Episode_Enemy_Id PRIMARY KEY (EpisodeEnemyId),
 CONSTRAINT FK_Episode_Enemy_Id FOREIGN KEY (EnemyId)
 REFERENCES tblEnemy(EnemyId)
 );
+
+CREATE TABLE tblCompanion(
+CompanionId int, 
+CompanionName VARCHAR(255),
+WhoPlayed VARCHAR(255)
+CONSTRAINT pk_Companion_Id PRIMARY KEY (CompanionId)
+);
