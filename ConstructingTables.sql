@@ -125,3 +125,16 @@ DROP COLUMN EpisodeEnemyId;
 ALTER TABLE tblEpisodeEnemy
 ADD EpisodeEnemyId INT NOT NULL IDENTITY(1,1)
 CONSTRAINT pk_Episode_Enemy_Id PRIMARY KEY (EpisodeEnemyId);
+
+--  make id of EpisodeCompanion auto increment
+
+ALTER TABLE tblEpisodeCompanion
+DROP CONSTRAINT pk_Episode_Companion_Id;
+
+ALTER TABLE tblEpisodeCompanion
+DROP COLUMN EpisodeCompanionId;
+
+ALTER TABLE tblEpisodeCompanion
+ADD EpisodeCompanionId INT NOT NULL IDENTITY(1,1)
+CONSTRAINT pk_Episode_Companion_Id PRIMARY KEY (EpisodeCompanionId);
+
