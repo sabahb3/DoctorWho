@@ -155,3 +155,21 @@ CONSTRAINT pk_Enemy_Id PRIMARY KEY (EnemyId);
 ALTER TABLE tblEpisodeEnemy 
 ADD CONSTRAINT FK_Episode_Enemy_Id FOREIGN KEY (EnemyId)
 REFERENCES tblEnemy(EnemyId)
+
+-- make id of author auto increment.
+ALTER TABLE tblEpisode 
+DROP CONSTRAINT fk_Author_Id
+
+ALTER TABLE tblAuthor
+DROP CONSTRAINT pk_Author_Id;
+
+ALTER TABLE tblAuthor
+DROP COLUMN AuthorId;
+
+ALTER TABLE tblAuthor
+ADD AuthorId INT NOT NULL IDENTITY(1,1)
+CONSTRAINT pk_Author_Id PRIMARY KEY (AuthorId);
+
+ALTER TABLE tblEpisode
+ADD CONSTRAINT fk_Author_Id FOREIGN KEY (AuthorId)
+REFERENCES tblAuthor(AuthorId);
