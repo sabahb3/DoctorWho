@@ -191,3 +191,22 @@ CONSTRAINT pk_Doctor_Id PRIMARY KEY (DoctorId)
 ALTER TABLE tblEpisode
 ADD CONSTRAINT fk_Doctor_Id FOREIGN KEY (DoctorId)
 REFERENCES tblDoctor(DoctorId)
+
+-- make id of companion auto increment.
+ALTER TABLE tblEpisodeCompanion 
+DROP CONSTRAINT FK_CompanionId_Id
+
+ALTER TABLE tblCompanion
+DROP CONSTRAINT pk_Companion_Id;
+
+ALTER TABLE tblCompanion
+DROP COLUMN CompanionId;
+
+ALTER TABLE tblCompanion
+ADD CompanionId INT NOT NULL IDENTITY(1,1)
+CONSTRAINT pk_Companion_Id PRIMARY KEY (CompanionId)
+
+ALTER TABLE tblEpisodeCompanion
+ADD CONSTRAINT FK_CompanionId_Id FOREIGN KEY (CompanionId)
+REFERENCES tblCompanion(CompanionId)
+
