@@ -23,4 +23,9 @@ INSERT INTO tblDoctor VALUES ('First Doctor','Anjad Shaar','1985-07-10','2005-01
                              ('Fifth Doctor','Majd Nabulsi','1989-12-26',null,null);
 SELECT * from tblDoctor;
 
-
+INSERT Into tblCompanion VALUES ('Ameera Ameer', 'Ameera Surakji'),
+                                ('khalid Ali', 'khalid Toma'),
+                                ('Aya Khalid', 'Aya Jamal'),
+                                ('Samar Samer', 'Samar Rsas'),
+                                ('Duaa Aqel ','Dalal Aqel');
+SELECT * from tblCompanion;
