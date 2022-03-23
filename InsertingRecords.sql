@@ -15,3 +15,12 @@ INSERT INTO tblEnemy VALUES('Tuberculosis','Tuberculosis (TB) is caused by bacte
                             ('Cholera','A bacterial infection which spreads through contaminated food and water.');
 
 SELECT * FROM tblEnemy;
+
+INSERT INTO tblDoctor VALUES ('First Doctor','Anjad Shaar','1985-07-10','2005-01-02','2008-05-21'),
+                             ('Second Doctor', 'Ranen Halabi','1986-08-03','2007-04-26','2010-05-20'),
+                             ('Third Doctor','Shahd Shaar','1987-04-22','2010-07-26',null),
+                             ('Fourth Doctor','Lina Khanna','1988-10-15',null,null),
+                             ('Fifth Doctor','Majd Nabulsi','1989-12-26',null,null);
+SELECT * from tblDoctor;
+
+
