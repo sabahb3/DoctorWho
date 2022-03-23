@@ -85,3 +85,31 @@ ADD CONSTRAINT fk_Episode_Id_And_Companion FOREIGN KEY (EpisodeId)
 REFERENCES tblEpisode(EpisodeId)
 
 sp_rename 'fk_Episode_Id' , 'fk_Episode_Id_And_Enemy';
+
+
+-- Make episode id auto increment
+ALTER TABLE tblEpisodeEnemy
+DROP CONSTRAINT fk_Episode_Id_And_Enemy;
+
+ALTER TABLE tblEpisodeCompanion
+DROP CONSTRAINT fk_Episode_Id_And_Companion;
+
+ALTER TABLE tblEpisode
+DROP CONSTRAINT pk_Episode_Id;
+
+ALTER TABLE tblEpisode
+DROP COLUMN EpisodeId;
+
+ALTER TABLE tblEpisode
+ADD EpisodeId INT NOT NULL IDENTITY(1,1);
+
+ALTER Table tblEpisode
+ADD CONSTRAINT pk_Episode_Id PRIMARY KEY (EpisodeId)
+
+ALTER Table tblEpisodeEnemy
+ADD CONSTRAINT fk_Episode_Id FOREIGN KEY (EpisodeId)
+REFERENCES tblEpisode(EpisodeId)
+
+ALTER Table tblEpisodeCompanion
+ADD CONSTRAINT fk_Episode_Id_And_Companion FOREIGN KEY (EpisodeId)
+REFERENCES tblEpisode(EpisodeId)
