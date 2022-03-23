@@ -31,9 +31,18 @@ INSERT Into tblCompanion VALUES ('Ameera Ameer', 'Ameera Surakji'),
 SELECT * from tblCompanion;
 
 
-INSERT INTO tblEpisode VALUES(1,1,'Full','Welcome','2009-05-21',(select top(1) AuthorId from tblAuthor WHERE AuthorName='Aisha Marmash'),(Select top(1) DoctorId from tblDoctor WHERE DoctorNumber='Second Doctor')),
+INSERT INTO tblEpisode (SeriesNumber,EpisodeNumber,EpisodeType,Title,EpisodeDate,AuthorId,DoctorId)
+                       VALUES(1,1,'Full','Welcome','2009-05-21',(select top(1) AuthorId from tblAuthor WHERE AuthorName='Aisha Marmash'),(Select top(1) DoctorId from tblDoctor WHERE DoctorNumber='Second Doctor')),
                              (1,2,'Trailer','Test','2009-05-28',(select top(1) AuthorId from tblAuthor WHERE AuthorName='Qamar Ashour'),(Select top(1) DoctorId from tblDoctor WHERE DoctorNumber='First Doctor')),
                              (1,3,'Bonus','Be Better','2005-06-20',(select top(1) AuthorId from tblAuthor WHERE AuthorName='Aisha Marmash'),null),
                              (2,1,'Full','Warnning','2006-06-22',(select top(1) AuthorId from tblAuthor WHERE AuthorName='Qamar Ashour'),(Select top(1) DoctorId from tblDoctor WHERE DoctorNumber='Fifth Doctor')),
                              (2,2,'Trailer','Final','2022-05-22',(select top(1) AuthorId from tblAuthor WHERE AuthorName='Asad Jamal'),null);
 SELECT * FROM tblEpisode;
+
+
+INSERT into tblEpisodeEnemy VALUES((select EpisodeId from tblEpisode where EpisodeNumber=1 and SeriesNumber=1),(Select top(1) EnemyId from tblEnemy where EnemyName='Poliomyelitis')),
+                                  ((select EpisodeId from tblEpisode where EpisodeNumber=1 and SeriesNumber=1),(Select top(1) EnemyId from tblEnemy where EnemyName='Poliomyelitis')),
+                                  ((select EpisodeId from tblEpisode where EpisodeNumber=2 and SeriesNumber=1),(Select top(1) EnemyId from tblEnemy where EnemyName='Tuberculosis')),
+                                  ((select EpisodeId from tblEpisode where EpisodeNumber=3 and SeriesNumber=1),(Select top(1) EnemyId from tblEnemy where EnemyName='Tuberculosis')),
+                                  ((select EpisodeId from tblEpisode where EpisodeNumber=2 and SeriesNumber=1),(Select top(1) EnemyId from tblEnemy where EnemyName='Smallpox'));
+SELECT * from tblEpisodeEnemy;
