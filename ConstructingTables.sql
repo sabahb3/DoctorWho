@@ -107,13 +107,14 @@ ALTER Table tblEpisode
 ADD CONSTRAINT pk_Episode_Id PRIMARY KEY (EpisodeId)
 
 ALTER Table tblEpisodeEnemy
-ADD CONSTRAINT fk_Episode_Id FOREIGN KEY (EpisodeId)
+ADD CONSTRAINT fk_Episode_Id_And_Enemy FOREIGN KEY (EpisodeId)
 REFERENCES tblEpisode(EpisodeId)
+ON DELETE CASCADE;
 
 ALTER Table tblEpisodeCompanion
 ADD CONSTRAINT fk_Episode_Id_And_Companion FOREIGN KEY (EpisodeId)
 REFERENCES tblEpisode(EpisodeId)
-
+ON DELETE CASCADE;
 --  make id of EpisodeEnemy auto increment
 
 ALTER TABLE tblEpisodeEnemy
@@ -155,6 +156,7 @@ CONSTRAINT pk_Enemy_Id PRIMARY KEY (EnemyId);
 ALTER TABLE tblEpisodeEnemy 
 ADD CONSTRAINT FK_Episode_Enemy_Id FOREIGN KEY (EnemyId)
 REFERENCES tblEnemy(EnemyId)
+ON DELETE CASCADE;
 
 -- make id of author auto increment.
 ALTER TABLE tblEpisode 
@@ -172,7 +174,8 @@ CONSTRAINT pk_Author_Id PRIMARY KEY (AuthorId);
 
 ALTER TABLE tblEpisode
 ADD CONSTRAINT fk_Author_Id FOREIGN KEY (AuthorId)
-REFERENCES tblAuthor(AuthorId);
+REFERENCES tblAuthor(AuthorId)
+ON DELETE CASCADE;
 
 -- make id of doctor auto increment.
 ALTER TABLE tblEpisode 
@@ -191,6 +194,7 @@ CONSTRAINT pk_Doctor_Id PRIMARY KEY (DoctorId)
 ALTER TABLE tblEpisode
 ADD CONSTRAINT fk_Doctor_Id FOREIGN KEY (DoctorId)
 REFERENCES tblDoctor(DoctorId)
+ON DELETE CASCADE;
 
 -- make id of companion auto increment.
 ALTER TABLE tblEpisodeCompanion 
@@ -209,4 +213,7 @@ CONSTRAINT pk_Companion_Id PRIMARY KEY (CompanionId)
 ALTER TABLE tblEpisodeCompanion
 ADD CONSTRAINT FK_CompanionId_Id FOREIGN KEY (CompanionId)
 REFERENCES tblCompanion(CompanionId)
+ON DELETE CASCADE;
+
+
 
