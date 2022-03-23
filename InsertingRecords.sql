@@ -46,3 +46,10 @@ INSERT into tblEpisodeEnemy VALUES((select EpisodeId from tblEpisode where Episo
                                   ((select EpisodeId from tblEpisode where EpisodeNumber=3 and SeriesNumber=1),(Select top(1) EnemyId from tblEnemy where EnemyName='Tuberculosis')),
                                   ((select EpisodeId from tblEpisode where EpisodeNumber=2 and SeriesNumber=1),(Select top(1) EnemyId from tblEnemy where EnemyName='Smallpox'));
 SELECT * from tblEpisodeEnemy;
+
+INSERT into tblEpisodeCompanion VALUES((select EpisodeId from tblEpisode where EpisodeNumber=1 and SeriesNumber=1),(select top(1) CompanionId from tblCompanion where CompanionName='Ameera Ameer')),
+                                      ((select EpisodeId from tblEpisode where EpisodeNumber=1 and SeriesNumber=1),(select top(1) CompanionId from tblCompanion where CompanionName='Aya Khalid')),
+                                      ((select EpisodeId from tblEpisode where EpisodeNumber=2 and SeriesNumber=1),(select top(1) CompanionId from tblCompanion where CompanionName='Samar Samer')),
+                                      ((select EpisodeId from tblEpisode where EpisodeNumber=3 and SeriesNumber=1),(select top(1) CompanionId from tblCompanion where CompanionName='Ameera Ameer')),
+                                      ((select EpisodeId from tblEpisode where EpisodeNumber=2 and SeriesNumber=1),(select top(1) CompanionId from tblCompanion where CompanionName='Samar Samer'));
+SELECT * from tblEpisodeCompanion;
