@@ -138,3 +138,20 @@ ALTER TABLE tblEpisodeCompanion
 ADD EpisodeCompanionId INT NOT NULL IDENTITY(1,1)
 CONSTRAINT pk_Episode_Companion_Id PRIMARY KEY (EpisodeCompanionId);
 
+-- make id of Enemy auto increment.
+ALTER TABLE tblEpisodeEnemy 
+DROP CONSTRAINT FK_Episode_Enemy_Id
+
+ALTER TABLE tblEnemy
+DROP CONSTRAINT pk_Enemy_Id;
+
+ALTER TABLE tblEnemy
+DROP COLUMN EnemyId;
+
+ALTER TABLE tblEnemy
+ADD EnemyId INT NOT NULL IDENTITY(1,1)
+CONSTRAINT pk_Enemy_Id PRIMARY KEY (EnemyId);
+
+ALTER TABLE tblEpisodeEnemy 
+ADD CONSTRAINT FK_Episode_Enemy_Id FOREIGN KEY (EnemyId)
+REFERENCES tblEnemy(EnemyId)
