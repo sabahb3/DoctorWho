@@ -113,3 +113,15 @@ REFERENCES tblEpisode(EpisodeId)
 ALTER Table tblEpisodeCompanion
 ADD CONSTRAINT fk_Episode_Id_And_Companion FOREIGN KEY (EpisodeId)
 REFERENCES tblEpisode(EpisodeId)
+
+--  make id of EpisodeEnemy auto increment
+
+ALTER TABLE tblEpisodeEnemy
+DROP CONSTRAINT pk_Episode_Enemy_Id;
+
+ALTER TABLE tblEpisodeEnemy
+DROP COLUMN EpisodeEnemyId;
+
+ALTER TABLE tblEpisodeEnemy
+ADD EpisodeEnemyId INT NOT NULL IDENTITY(1,1)
+CONSTRAINT pk_Episode_Enemy_Id PRIMARY KEY (EpisodeEnemyId);
