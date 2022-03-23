@@ -173,3 +173,21 @@ CONSTRAINT pk_Author_Id PRIMARY KEY (AuthorId);
 ALTER TABLE tblEpisode
 ADD CONSTRAINT fk_Author_Id FOREIGN KEY (AuthorId)
 REFERENCES tblAuthor(AuthorId);
+
+-- make id of doctor auto increment.
+ALTER TABLE tblEpisode 
+DROP CONSTRAINT fk_Doctor_Id
+
+ALTER TABLE tblDoctor
+DROP CONSTRAINT pk_Doctor_Id;
+
+ALTER TABLE tblDoctor
+DROP COLUMN DoctorId;
+
+ALTER TABLE tblDoctor
+ADD DoctorId INT NOT NULL IDENTITY(1,1)
+CONSTRAINT pk_Doctor_Id PRIMARY KEY (DoctorId)
+
+ALTER TABLE tblEpisode
+ADD CONSTRAINT fk_Doctor_Id FOREIGN KEY (DoctorId)
+REFERENCES tblDoctor(DoctorId)
